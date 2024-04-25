@@ -126,8 +126,8 @@ def calculate_iou(box1, box2):
     return inter_area / union_area if union_area != 0 else 0
 
 # Process frames
-first_model = get_model(model_id="face-detection-ugzy1")
-second_model = get_model(model_id="face-detection-ugzy1")
+first_model = get_model(model_id="face-detection-ugzy1/21")
+second_model = get_model(model_id="face-detection-ugzy1/21")
 
 
 # Initialize ByteTrack tracker and bounding box annotator
