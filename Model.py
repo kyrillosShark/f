@@ -16,7 +16,7 @@ load_dotenv()  # This loads the environment variables from `.env` into the envir
 roboflow_api_key = os.getenv("ROBOFLOW_API_KEY")
 print("Roboflow API Key:", roboflow_api_key)
 # Load the video source and get its resolution
-video_source = "a2.avi"
+video_source = "video.mp4"
 cap = cv2.VideoCapture(video_source)
 width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
@@ -36,7 +36,7 @@ bounding_box_annotator = sv.BoundingBoxAnnotator()
 distress_status = {}
 last_detection_center = None
 # Load the second model
-second_model = get_model(model_id="persondetection2-lrsz4/6")
+second_model = get_model(model_id="drowning-detection-bjy2v/1")
 
 # Define a function to calculate IoU
 def calculate_iou(box1, box2):
@@ -171,7 +171,7 @@ def display_roi_with_banner(frame, roi):
 
 # Initialize the inference pipeline for the first model
 pipeline = InferencePipeline.init(
-    model_id="persondetection-jugx5/2",
+    model_id="person-detection-bdabu/3",
     video_reference=video_source,
     on_prediction=my_custom_sink,
 )
